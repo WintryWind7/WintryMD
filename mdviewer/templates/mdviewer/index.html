@@ -1,0 +1,42 @@
+{% extends "mdviewer/base.html" %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'style/css/bootstrap.css' %}" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'style/css/navbar-top.css' %}" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'style/css/center-div.css' %}" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'style/css/markdown-style.css' %}" crossorigin="anonymous">
+
+
+{% block md_view %}{{ md_view|safe }}{% endblock %}
+
+{% block navbar_items %}
+<!-- 根据提供的列表动态生成导航项 -->
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="familyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ current_family }}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="familyDropdown">
+        {% for family in family_list %}
+        <li><a class="dropdown-item" href="{% url 'mdviewer:index' family=family dirname='main' filename='introduction' %}">{{ family }}</a></li>
+        {% endfor %}
+    </ul>
+</li>
+
+{% for dirname in dirname_list %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'mdviewer:index' family=current_family dirname=dirname filename='introduction' %}">{{ dirname }}</a>
+    </li>
+{% endfor %}
+{% endblock %}
+
+{% block filename %}{{ current_filename }}{% endblock %}
+
+{% block choose %}
+    {% for filename in filename_list %}
+    <li>
+        <a class="{% if filename == current_filename %}highlightoo{% endif %}" href="{% url 'mdviewer:index' family=current_family dirname=current_dirname filename=filename %}">
+            {{ filename }}
+        </a>
+    </li>
+    {% endfor %}
+{% endblock %}

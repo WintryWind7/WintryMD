@@ -1,0 +1,65 @@
+.custom-container {
+    max-width: 1500px; /* 或者根据你的需求设置其他值 */
+    /*margin-right: auto;*/
+    /*margin-left: auto;*/
+    /*width: 100%;*/
+}
+
+.custom-div {
+    /*border: 2px solid #007bff; !* 蓝色边框 *!*/
+    border-radius: 10px; /* 圆角 */
+    margin-bottom: 20px; /* 与下一个元素的间距 */
+    width: 32%;
+    padding-left: 0; /* 移除默认的左内边距 */
+}
+
+.title-div {
+    color: #007bff; /* 蓝色字体 */
+    font-weight: bold; /* 加粗 */
+    font-size: 20px; /* 字号更大 */
+    margin-bottom: 10px; /* 标题与下一个元素的间距 */
+}
+
+.decor-div {
+    height: 50px; /* 装饰空间的高度 */
+    /*background-color: #f0f0f0; !* 装饰空间的背景色 *!*/
+}
+
+.custom-filename-link {
+    text-decoration: none; /* 去除下划线 */
+    color: black; /* 默认字体颜色为黑色 */
+    transition: color 0.3s ease; /* 颜色变化的过渡动画 */
+}
+
+.custom-filename-link:hover {
+    color: blue; /* 鼠标悬停时字体颜色变为蓝色 */
+}
+
+.list-div {
+    padding-left: 0; /* 移除默认的左内边距 */
+}
+
+.list-div ul {
+    list-style-type: none; /* 移除列表符号 */
+    padding-left: 0; /* 移除默认的左内边距 */
+    margin: 0; /* 移除默认的外边距，保持列表紧凑 */
+}
+
+.list-div li {
+    padding: 5px 0; /* 保持之前设置的垂直间距 */
+}
+
+.list-div a {
+    text-decoration: none; /* 去除下划线 */
+    /*color: black; !* 默认字体颜色为黑色 *!*/
+    transition: color 0.3s ease; /* 颜色变化的过渡动画 */
+}
+
+.list-div a:hover {
+    color: blue; /* 鼠标悬停时字体颜色变为蓝色 */
+}
+
+.highlightoo {
+    color: blue; /* 高亮字体颜色为蓝色 */
+}
+

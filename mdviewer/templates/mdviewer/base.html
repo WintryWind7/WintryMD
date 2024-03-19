@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Title{% endblock %}</title>
+    <script src="{% static 'style/js/bootstrap.bundle.js' %}" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style/css/bootstrap.css' %}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style/css/navbar-top.css' %}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style/css/center-div.css' %}" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style/css/markdown-style.css' %}" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top custom-gradient">
+    <div class="container-fluid">
+        <a class="navbar-brand ms-1" href="#">WintryMD</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                {% block navbar_items %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Python
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navDropdown">
+                        <li><a class="dropdown-item" href="#">Python</a></li>
+                        <li><a class="dropdown-item" href="#">Java</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">待定</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">待定</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        更多
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">子项目1</a></li>
+                        <li><a class="dropdown-item" href="#">子项目2</a></li>
+                        <li><a class="dropdown-item" href="#">子项目3</a></li>
+                    </ul>
+                </li>
+                {% endblock %}
+            </ul>
+            <form class="d-flex" role="search" style="flex-grow: 1; justify-content: flex-end;">
+                <input class="form-control me-2" type="search" placeholder="搜索" aria-label="搜索" style="width: 20%;">
+                <button class="btn btn-outline-light" type="submit">搜索</button>
+            </form>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">关于</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% block navbar %}
+<!-- 导航栏代码，可以选择包含 navbar.html -->
+{% endblock navbar %}
+
+<div class="container mt-5 pt-5 custom-container">
+    <div class="d-flex justify-content-between">
+        <div class="p-2 custom-div" style="width: 15%;">
+            <div class="title-div">分类导航</div>
+            <div class="list-div">
+                <ul>
+                    {% block choose %}
+                    <li>项目1</li>
+                    <li>项目2</li>
+                    <li>项目3</li>
+                    {% endblock %}
+                </ul>
+            </div>
+            <div class="decor-div"></div>
+        </div>
+        <div class="p-2 custom-div" style="width: 56%;">
+            <div class="title-div">{% block filename %}MD文档{% endblock %}</div>
+                <article class="markdown-body">
+                    {% block md_view %}{% endblock %}
+                </article>
+            <div class="decor-div"></div>
+        </div>
+        <div class="p-2 custom-div" style="width: 15%;">
+            <div class="title-div">结构</div>
+            <div id="markdown-toc" class="list-div">
+            </div>
+            <div class="decor-div"></div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // 为代码块添加复制按钮
+    document.querySelectorAll('pre').forEach(function(preBlock) {
+        const container = document.createElement('div');
+        container.className = 'code-container';
+        const button = document.createElement('button');
+        button.textContent = '复制';
+        button.className = 'copy-button';
+        preBlock.before(container);
+        container.appendChild(preBlock);
+        container.appendChild(button);
+        button.addEventListener('click', function() {
+            var code = preBlock.textContent;
+            var tempInput = document.createElement('textarea');
+            document.body.appendChild(tempInput);
+            tempInput.value = code;
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            // alert('代码已复制到剪贴板');
+        });
+    });
+
+    // 生成目录
+    const markdownBody = document.querySelector('.markdown-body');
+    const tocContainer = document.getElementById('markdown-toc');
+    const headings = markdownBody.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headings.forEach(function(heading, index) {
+        const id = heading.id || `heading-${index}`;
+        heading.id = id;
+        const tocItem = document.createElement('a');
+        tocItem.href = `#${id}`;
+        tocItem.textContent = heading.textContent;
+        tocItem.dataset.level = heading.tagName[1]; // 使用data-level属性
+        tocContainer.appendChild(tocItem);
+    });
+
+    // 滚动时更新目录高亮状态
+    document.addEventListener('scroll', function() {
+        let found = false;
+        headings.forEach(function(heading) {
+            if (window.scrollY >= heading.offsetTop - 10 && !found) {
+                const id = heading.id;
+                document.querySelectorAll('#markdown-toc a').forEach(a => {
+                    a.classList.remove('active');
+                    if (a.getAttribute('href') === `#${id}`) {
+                        a.classList.add('active');
+                    }
+                });
+                found = true;
+            }
+        });
+    }, { passive: true });
+});
+
+</script>
+</body>
+</html>
