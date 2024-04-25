@@ -1,0 +1,187 @@
+{
+  "main": {
+    "id": "6c8b4f89b8c28030",
+    "type": "split",
+    "children": [
+      {
+        "id": "9559174807050f7e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "45c696f93fd269ff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Python/库/数据库.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9cfbaa3cbacdd235",
+    "type": "split",
+    "children": [
+      {
+        "id": "0f98d54359b7c6df",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ec19412ac0c8941b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "785b09f3ae6646c2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f819208d3dee6a68",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 353.5
+  },
+  "right": {
+    "id": "3ff85be71f232d36",
+    "type": "split",
+    "children": [
+      {
+        "id": "19510da8601d224c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e77d91b4c0f24aca",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Python/库/数据库.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "77c3b51673e38e8b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Python/库/数据库.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "21430615338b03dd",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "dd56cf4ee922f45a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Python/库/数据库.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "remotely-save:Remotely Save": false
+    }
+  },
+  "active": "45c696f93fd269ff",
+  "lastOpenFiles": [
+    "Python/库/深度学习.md",
+    "Python/库/Tortoise ORM.md",
+    "Python/Web&爬虫/Selenium.md",
+    "Python/Web&爬虫/Scrapy.md",
+    "Python/Web&爬虫/requests.md",
+    "Python/Web&爬虫/Django.md",
+    "Python/Web&爬虫/Beautiful Soup.md",
+    "Python/Web&爬虫/介绍.md",
+    "Python/main/介绍.md",
+    "Python/库/PyMongo.md",
+    "Python/库/TensorFlow.md",
+    "Python/库/numpy.md",
+    "Python/库/数据库.md",
+    "Python/库/Keras.md",
+    "Error/main/error.md",
+    "Home/main/介绍.md",
+    "Python/库/assets/image-20240423102438055.png",
+    "Python/库/pandas.md",
+    "Python/库/assets/image-20240415102843656.png",
+    "Python/库/matplotlib.md",
+    "Python/数据库‘.md",
+    "Python/库/assets/image-20240419112855246.png",
+    "Pasted image 20240419112840.png",
+    "Pasted image 20240419112704.png",
+    "Pasted image 20240419112810.png",
+    "Pasted image 20240419112720.png",
+    "md_change.py~",
+    "Python/库/assets/image-20240415102807146.png",
+    "Python/库/assets/image-20240415102539044.png",
+    "Python/库/assets/image-20240415102358683.png",
+    "Python/库/assets",
+    "md_change.py",
+    "未命名.md",
+    "Django.md"
+  ]
+}
