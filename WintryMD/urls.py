@@ -21,5 +21,5 @@ from django.shortcuts import redirect
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('mdviewer/', include(('mdviewer.urls', 'mdviewer'), namespace='mdviewer')),
-    path('', lambda request: redirect('mdviewer/Home/main/introduction')),
+    path('', lambda request: redirect('mdviewer/Home/main/介绍')),
 ]

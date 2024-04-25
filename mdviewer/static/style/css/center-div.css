@@ -1,5 +1,5 @@
 .custom-container {
-    max-width: 1500px; /* 或者根据你的需求设置其他值 */
+    max-width: 1550px; /* 或者根据你的需求设置其他值 */
     /*margin-right: auto;*/
     /*margin-left: auto;*/
     /*width: 100%;*/
@@ -51,7 +51,7 @@
 
 .list-div a {
     text-decoration: none; /* 去除下划线 */
-    /*color: black; !* 默认字体颜色为黑色 *!*/
+    color: black; /* 默认字体颜色为黑色 */
     transition: color 0.3s ease; /* 颜色变化的过渡动画 */
 }
 
@@ -59,7 +59,81 @@
     color: blue; /* 鼠标悬停时字体颜色变为蓝色 */
 }
 
-.highlightoo {
+ul li a.highlightoo {
     color: blue; /* 高亮字体颜色为蓝色 */
 }
 
+:target::before {
+    content: "";
+    display: block;
+    height: 60px; /* 导航栏的高度加上一些额外的空间 */
+    margin: -60px 0 0; /* 同上，用负值偏移 */
+}
+
+/* 容器样式，包裹<pre>和复制按钮 */
+.code-container {
+    position: relative; /* 设置相对定位，作为子元素绝对定位的参考 */
+    display: inline-block;
+    width: 100%;
+}
+
+/* 复制按钮样式 */
+.copy-button {
+    position: absolute; /* 绝对定位 */
+    right: 0; /* 右上角 */
+    top: 0; /* 右上角 */
+    cursor: pointer; /* 鼠标悬停时显示指针样式 */
+    background-color: transparent;
+    padding: 5px; /* 按钮内边距 */
+    border: none; /* 无边框 */
+    color: #a9a9a9; /* 默认文字颜色为淡灰色 */
+    font-size: 0.8em; /* 字体大小稍小 */
+    transition: color 0.7s; /* 文字颜色过渡动画 */
+    z-index: 1; /* 确保按钮在上层 */
+}
+
+/*!* 鼠标悬停样式 *!*/
+/*.copy-button:hover {*/
+/*    color: black; !* 悬停文字颜色变为黑色 *!*/
+/*}*/
+
+/* 点击时的样式 */
+.copy-button:active {
+    transition: color 0.1s;
+    color: black; /* 点击时文字颜色变为淡蓝色 */
+}
+
+/* 目录项基本样式 */
+#markdown-toc {
+    position: sticky;
+    top: 80px; /* 调整这个值以控制目录距顶部的距离 */
+    max-height: 90vh; /* 视窗高度的90%，调整以适应你的布局 */
+    overflow-y: auto; /* 超出时允许垂直滚动 */
+    padding-left: 0;
+    /*border: 1px solid #ccc;*/
+    background-color: white;
+    z-index: 1000; /* 确保在页面其他内容之上 */
+}
+
+#markdown-toc a {
+    text-decoration: none; /* 删除下划线 */
+    color: black; /* 默认颜色为黑色 */
+    display: block;
+    transition: color 0.3s; /* 平滑颜色过渡效果 */
+}
+
+/* 不同级别标题的缩进样式 */
+#markdown-toc a[data-level='1'] { padding-left: 0px; }
+#markdown-toc a[data-level='2'] { padding-left: 20px; }
+#markdown-toc a[data-level='3'] { padding-left: 40px; }
+/* 根据需要添加更多级别 */
+
+/* 高亮样式 */
+#markdown-toc a.active {
+    color: blue; /* 高亮颜色为蓝色 */
+}
+
+/* 鼠标悬停样式 */
+#markdown-toc a:hover {
+    color: blue; /* 悬停颜色为蓝色 */
+}

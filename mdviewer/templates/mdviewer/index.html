@@ -17,14 +17,14 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="familyDropdown">
         {% for family in family_list %}
-        <li><a class="dropdown-item" href="{% url 'mdviewer:index' family=family dirname='main' filename='introduction' %}">{{ family }}</a></li>
+        <li><a class="dropdown-item" href="{% url 'mdviewer:index' family=family dirname='main' filename='介绍' %}">{{ family }}</a></li>
         {% endfor %}
     </ul>
 </li>
 
 {% for dirname in dirname_list %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'mdviewer:index' family=current_family dirname=dirname filename='introduction' %}">{{ dirname }}</a>
+        <a class="nav-link" href="{% url 'mdviewer:index' family=current_family dirname=dirname filename='介绍' %}">{{ dirname }}</a>
     </li>
 {% endfor %}
 {% endblock %}
