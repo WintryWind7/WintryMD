@@ -20,6 +20,7 @@ from . import views
 app_name = 'mdviewer'
 urlpatterns = [
     path("test/", views.test),
-    path("<str:family>/<str:dirname>/<str:filename>/", views.index, name='index')
+    path("<str:family>/<str:dirname>/<str:filename>/", views.index, name='index'),
+    path('search_api/', views.search_api, name='search_api')
 
 ]

@@ -8,6 +8,12 @@ def current_path(*args):
     data_file_path = os.path.join(current_script_path, *args)
     return data_file_path
 
+def remove_spaces(match):
+    # 移除内部首尾空格
+    cleaned = match.group(1).strip()
+    # 返回处理后的代码框，不带外部的分隔符
+    return '`' + cleaned + '`'
+
 def get_file_path() -> list:
     path_list = []
     dir_list = [dir_name for dir_name, _, _ in os.walk('.')]
@@ -34,11 +40,15 @@ def md_changes(file_path):
     content = re.sub(r'([\u4e00-\u9fffA-Za-z])(`)', r'\1 \2', content)
     content = re.sub(r'(`)([\u4e00-\u9fffA-Za-z])', r'\1 \2', content)
 
+    # 规则 3: 短代码框(``)内紧贴空格的，删除这个空格。
+    content = re.sub(r'`([^`]*)`', r'|||`\1`|||', content)
+    content = re.sub(r'\|\|\|`([^`]*)`\|\|\|', remove_spaces, content)
+
     # 规则 4: 如果标点符号前后，紧跟空格，则删除这个空格。
     content = re.sub(r'[ ]+([，。！？：；])', r'\1', content)
     content = re.sub(r'([，。！？：；])[ ]+', r'\1', content)
 
-    #
+
     # 规则 5: 如果冒号符号不在代码框内，则这个冒号应为中文冒号。
     content = re.sub(r'(```[\s\S]*?```|`[^`]*?`)', lambda m: m.group(0).replace(':', 'EN_COLON'), content)
     content = content.replace(':', '：')
@@ -47,7 +57,6 @@ def md_changes(file_path):
     # 写回修改后的内容
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(content)
-
 
 def get_images_path():
     """获取所有的图片路径"""
